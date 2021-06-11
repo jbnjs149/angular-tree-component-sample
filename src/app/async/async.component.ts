@@ -10,8 +10,7 @@ import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
 export class AsyncComponent implements OnInit {
   ngOnInit() {}
   options: ITreeOptions = {
-    getChildren: this.getChildren.bind(this),
-    useCheckbox: true
+    getChildren: this.getChildren.bind(this)
   };
 
   nodes: any[] = [];
@@ -43,7 +42,7 @@ export class AsyncComponent implements OnInit {
   }
 
   getChildren(node: any) {
-    console.log('error');
+    console.log('node', node);
     const newNodes = this.asyncChildren.map(c => Object.assign({}, c));
 
     return new Promise((resolve, reject) => {
